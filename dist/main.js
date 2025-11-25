@@ -1,8 +1,8 @@
-import Node from "./Node";
-import connectChildren from "./connectChildrens";
-import createRoom from "./createRoom";
-import draw from "./draw";
-import split from "./split";
+import Node from "./Node.js";
+import connectChildren from "./connectChildrens.js";
+import createRoom from "./createRoom.js";
+import draw from "./draw.js";
+import split from "./split.js";
 const width = 100;
 const height = 60;
 const root = new Node(0, 0, width, height);

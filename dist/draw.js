@@ -1,4 +1,4 @@
-import drawCorridors from "./drawCorridors";
+import drawCorridors from "./drawCorridors.js";
 const draw = (leaves, corridor) => {
     const canvas = document.getElementById("map");
     const ctx = canvas.getContext("2d");

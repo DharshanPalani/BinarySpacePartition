@@ -1,4 +1,4 @@
-import getRoomCenter from "./getRoomCenter";
+import getRoomCenter from "./getRoomCenter.js";
 const createCorridor = (a, b) => {
     const A = getRoomCenter(a);
     const B = getRoomCenter(b);

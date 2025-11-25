@@ -1,5 +1,5 @@
-import createCorridor from "./createCorridor";
-import getRoom from "./getRoom";
+import createCorridor from "./createCorridor.js";
+import getRoom from "./getRoom.js";
 const connectChildren = (node, corridors) => {
     if (!node.left || !node.right)
         return;

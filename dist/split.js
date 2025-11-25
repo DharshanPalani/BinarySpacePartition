@@ -1,4 +1,4 @@
-import Node from "./Node";
+import Node from "./Node.js";
 const split = (leaf, min_leaf_size) => {
     if (leaf.left !== null || leaf.right !== null)
         return false;
