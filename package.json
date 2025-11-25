@@ -4,5 +4,8 @@
   },
   "dependencies": {
     "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "fs-extra": "^11.3.2"
   }
 }

@@ -1,7 +1,12 @@
 const fs = require("fs");
 const path = require("path");
 
-const dir = "./public/dist";
+const publicDir = "./public";
+const distDir = path.join(publicDir, "dist");
+
+if (!fs.existsSync(publicDir)) {
+  fs.mkdirSync(publicDir, { recursive: true });
+}
 
 function addJsExt(file) {
   let content = fs.readFileSync(file, "utf8");
@@ -9,6 +14,18 @@ function addJsExt(file) {
   fs.writeFileSync(file, content);
 }
 
-fs.readdirSync(dir).forEach((file) => {
-  if (file.endsWith(".js")) addJsExt(path.join(dir, file));
+fs.readdirSync(distDir).forEach((file) => {
+  if (file.endsWith(".js")) addJsExt(path.join(distDir, file));
 });
+
+let html = fs.readFileSync("index.html", "utf8");
+
+// Manual replacement, shitty but idc
+html = html.replace(
+  /<script type="module" src="\.\/src\/main\.ts"><\/script>/,
+  '<script type="module" src="./dist/main.js"></script>'
+);
+
+fs.writeFileSync(path.join(publicDir, "index.html"), html);
+
+console.log("Build successful");
