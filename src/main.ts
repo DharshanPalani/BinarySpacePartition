@@ -1,8 +1,8 @@
-import Node from "./Node.ts";
-import connectChildren from "./connectChildrens.ts";
-import createRoom from "./createRoom.ts";
-import draw from "./draw.ts";
-import split from "./split.ts";
+import Node from "./Node";
+import connectChildren from "./connectChildrens";
+import createRoom from "./createRoom";
+import draw from "./draw";
+import split from "./split";
 
 const width = 100;
 const height = 60;
