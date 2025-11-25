@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const dir = "./dist";
+const dir = "./public/dist";
 
 function addJsExt(file) {
   let content = fs.readFileSync(file, "utf8");
