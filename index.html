@@ -2,19 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>BSP Visualizer</title>
+    <title>BSP Visualizer | Portfolio</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Binary Space Partition</h1>
-    <p>Split a space into rooms and connect them with corridors.</p>
+    <h1>Binary Space Partition Visualizer</h1>
+    <p>
+      This project demonstrates procedural dungeon generation using the Binary
+      Space Partitioning (BSP) algorithm. It splits a given space into rooms and
+      connects them with corridors dynamically. View the source code on
+      <a
+        href="https://github.com/DharshanPalani/BinarySpacePartition"
+        target="_blank"
+        >GitHub</a
+      >
+    </p>
 
     <div id="main-container">
+      <!-- Settings Panel -->
       <div class="settings">
-        <label>Min Room Size</label>
+        <label for="min_room_size_input">Min Room Size</label>
         <input type="number" id="min_room_size_input" value="20" />
 
-        <label>Max Room Size</label>
+        <label for="max_room_size_input">Max Room Size</label>
         <input type="number" id="max_room_size_input" value="100" />
 
         <button id="generate_bsp">Generate BSP</button>
@@ -22,10 +32,15 @@
 
       <div class="visualizer">
         <canvas id="map" width="600" height="360"></canvas>
-        <div id="container"></div>
       </div>
     </div>
 
+    <footer>
+      <p>
+        Developed by Dharshan Palani |
+        <a href="https://github.com/DharshanPalani/" target="_blank">GitHub</a>
+      </p>
+    </footer>
     <script type="module" src="./src/main.ts"></script>
   </body>
 </html>
