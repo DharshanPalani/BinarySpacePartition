@@ -6,6 +6,10 @@ const draw = (leaves: Node[], corridor: any[]) => {
   const ctx = canvas.getContext("2d")!;
   const container = document.getElementById("container")!;
 
+  container.innerHTML = "";
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
   const scale = 6;
 
   leaves.forEach((l, index) => {
