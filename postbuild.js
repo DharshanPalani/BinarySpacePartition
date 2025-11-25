@@ -20,11 +20,18 @@ fs.readdirSync(distDir).forEach((file) => {
 
 let html = fs.readFileSync("index.html", "utf8");
 
-// Manual replacement, shitty but idc
+let css = fs.readFileSync("style.css", "utf8");
+
+let styleToAdd = `<style>${css}</style>`;
+
+html = html.replace("</head>", `${styleToAdd}</head>`);
+
 html = html.replace(
   /<script type="module" src="\.\/src\/main\.ts"><\/script>/,
   '<script type="module" src="./dist/main.js"></script>'
 );
+
+html = html.replace(/<link rel="stylesheet" href="style.css" \/>/, "");
 
 fs.writeFileSync(path.join(publicDir, "index.html"), html);
 
