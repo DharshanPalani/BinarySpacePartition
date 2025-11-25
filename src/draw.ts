@@ -1,50 +1,40 @@
-import drawCorridors from "./drawCorridors";
 import Node from "./Node";
+import drawCorridors from "./drawCorridors";
 
-const draw = (leaves: Node[], corridor: any[]) => {
+const draw = (leaves: Node[], corridors: { x: number; y: number }[]) => {
   const canvas = document.getElementById("map") as HTMLCanvasElement;
   const ctx = canvas.getContext("2d")!;
-  const container = document.getElementById("container")!;
-
-  container.innerHTML = "";
+  const scale = 6;
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  const scale = 6;
-
-  leaves.forEach((l, index) => {
+  leaves.forEach((leaf, index) => {
     ctx.strokeStyle = "white";
-    ctx.strokeRect(l.x * scale, l.y * scale, l.width * scale, l.height * scale);
+    ctx.lineWidth = 1;
+    ctx.strokeRect(
+      leaf.x * scale,
+      leaf.y * scale,
+      leaf.width * scale,
+      leaf.height * scale
+    );
 
-    if (l.room) {
-      const r = document.createElement("div");
-      r.style.position = "absolute";
-      r.style.left = l.room.x * scale + "px";
-      r.style.top = l.room.y * scale + "px";
-      r.style.width = l.room.width * scale + "px";
-      r.style.height = l.room.height * scale + "px";
-      r.style.border = "2px solid lime";
-      r.style.pointerEvents = "none";
-
-      container.appendChild(r);
+    if (leaf.room) {
+      ctx.strokeStyle = "lime";
+      ctx.lineWidth = 2;
+      ctx.strokeRect(
+        leaf.room.x * scale,
+        leaf.room.y * scale,
+        leaf.room.width * scale,
+        leaf.room.height * scale
+      );
     }
 
-    const div = document.createElement("div");
-    div.style.position = "absolute";
-    div.style.left = l.x * scale + "px";
-    div.style.top = l.y * scale + "px";
-    div.style.width = l.width * scale + "px";
-    div.style.height = l.height * scale + "px";
-    div.style.pointerEvents = "none";
-
-    div.style.color = "yellow";
-    div.style.fontSize = "14px";
-
-    div.innerHTML = `<p>Leaf ${index + 1}</p>`;
-
-    container.appendChild(div);
+    ctx.fillStyle = "yellow";
+    ctx.font = `${10}px Arial`;
+    ctx.fillText(`leaf ${index + 1}`, leaf.x * scale + 2, leaf.y * scale + 12);
   });
-  drawCorridors(ctx, corridor);
+
+  drawCorridors(ctx, corridors, scale);
 };
 
 export default draw;

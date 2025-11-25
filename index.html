@@ -3,30 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <title>BSP Visualizer</title>
-
-    <style>
-      body {
-        background: rgb(22, 22, 22);
-        color: white;
-      }
-      canvas {
-        background: #242424;
-        border: 1px solid #444;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-      <!--<h1>Binary Space Partition</h1>
-      <p>
-        Objective: Splits the given space into leaves and uses each leaf and
-        draws room on it, and connect them with collidors.<br />
-        By Dharshan Palani Sybau
-    </p>-->
-    <div id="container" style="position: relative">
+    <h1>Binary Space Partition</h1>
+    <p>Split a space into rooms and connect them with corridors.</p>
+
+    <div id="main-container">
+      <div class="settings">
+        <label>Min Room Size</label>
+        <input type="number" id="min_room_size_input" value="20" />
+
+        <label>Max Room Size</label>
+        <input type="number" id="max_room_size_input" value="100" />
+
+        <button id="generate_bsp">Generate BSP</button>
+      </div>
+
+      <div class="visualizer">
+        <canvas id="map" width="600" height="360"></canvas>
+        <div id="container"></div>
+      </div>
     </div>
-      <canvas id="map" width="600" height="360"></canvas>
-    <button id="generate_bsp">Generate</button>
+
     <script type="module" src="./src/main.ts"></script>
   </body>
 </html>

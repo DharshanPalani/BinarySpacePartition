@@ -7,13 +7,13 @@ import split from "./split";
 const width = 100;
 const height = 60;
 
-const generate_bsp = () => {
+const generate_bsp = (min_room_size : number, max_room_size : number) => {
 
   const root = new Node(0, 0, width, height);
 
   const leaf: Node[] = [root];
 
-  const min_leaf_size = Math.floor(Math.random() * (20 - 10 + 1) + 15);
+  const min_leaf_size = Math.floor(Math.random() * (max_room_size - min_room_size + 1) + 15);
 
   let didSplit = true;
 
@@ -53,8 +53,12 @@ const generate_bsp = () => {
 
 const generateBtn = document.getElementById("generate_bsp");
 
+
 generateBtn?.addEventListener('click', () => {
-  generate_bsp();
-})
+  const min_room_size_input = document.getElementById("min_room_size_input") as HTMLInputElement;
+  const max_room_size_input = document.getElementById("max_room_size_input") as HTMLInputElement;
+
+  generate_bsp(parseInt(min_room_size_input.value), parseInt(max_room_size_input.value));
+});
 
 
