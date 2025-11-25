@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "es6",
-    "outDir": "dist",
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "outDir": "public/dist",
+    "rootDir": "src",
     "strict": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
-  "include": ["./src"]
+  "include": ["src/**/*"]
 }
